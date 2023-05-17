@@ -1,0 +1,88 @@
+LINUX COMMANDS
+
+Q1. Display top 10 processes in descending order
+    	ps aux --sort=-%cpu | head -11
+	
+Q2. Display processes with highest memory usage.
+	ps aux --sort=-%mem | head -11
+
+Q3. Display current logged in user and logname
+	echo "Current user: $(whoami)"
+	echo "Logname: $(logname)
+
+Q4. Display current shell, home directory, operating system type, current path setting, 
+    current working directory.
+	echo $SHELL
+	echo $HOME
+	uname -s
+	echo $PATH
+	pwd
+
+Q5. Display OS version, release number, kernel version.
+	lsb_release -a
+	uname -r
+
+Q6. Write a command to display the first 15 columns from each line in the file
+	cut -f 1-15 <filename>
+
+Q7. Cut specified columns from a file and display them
+	cut -f <columns> <filename>
+  Ex. cut -f 2,4,6 data.txt
+
+Q8. Sort given file ignoring upper and lower case
+	sort -f data.txt
+
+Q9. Displays only directories in current working directory
+	ls -d */
+
+Q10. copying files from one place to another,
+	cp file.txt /path/to/destination/
+	cp -r directory/ /path/to/destination/ (FOR COPYING A DIRECTORY)
+
+Q11. Moving files from one place to other
+	mv file.txt /path/to/destination/
+
+Q12.  Remove a directory and its contents recursively (including subdirectories): rm -r <directory>
+	Prompt for confirmation before removing each file or directory:rm -i <directory>
+	Remove a directory and its contents forcefully without prompting for confirmation:rm -rf <directory>
+	Remove a directory and display verbose output:rm -v <directory>
+
+Q13. List the numbers of users currently login in the system and then sort it.
+	who | cut -d ' ' -f 1 | sort | uniq
+
+Q14. Merge two files into one
+	cat file1.txt file2.txt > merged.txt
+
+Q15. Change the access mode of one file
+	chmod +x fileName.txt
+
+Q16. Display the last ten lines of the file.
+	tail -n 10 myfile.txt
+
+Q17. To locate files in a directory and in a subdirectory.
+	find . -type f -name "myfile.txt"
+	grep -r "<filename>" <directory>
+
+Q18. This displays the contents of all files having a name starting with ap followed 
+by any number of characters
+	cat ap*
+
+Q19. Rename any file aaa to aaa.aa1, where aa1 is the user login name
+	 mv file2.txt aaaa.$LOGNAME
+
+Q20. Write a command to search the word ‘picture’ in the file and if found, the lines containing it 
+would be displayed on the screen.
+	grep "picture" example.txt
+
+Q21. Write a command to search for all occurrences of ‘Rebecca’ as well as ‘rebecca’ in file and 
+display the lines which contain one of these words.
+	grep -i "Rebecca\|rebecca" example.txt
+
+Q22. Write a command to search all four-letter words whose first letter is a ‘b’ and last letter, a 
+‘k’.
+	grep -E "\b[bB][a-zA-Z]{2}k\b" example.txt
+	grep '^b..k$' file.txt
+
+Q23. Write a command to see only those lines which do not contain the search patterns
+	grep -v "apple\|banana" example.txt
+
